@@ -38,6 +38,23 @@ int sword(int type)
     }
 }
 
+int if_potion(int level)
+{
+Pytanie:
+    cout << "Podaj poziom effectu strength który posiadasz (wpisz zero jeśli brak)\n";
+    cin >> level;
+    if (level < 0)
+    {
+        cout << "Nie rozumiem, ponawiam pytanie\n";
+        goto Pytanie;
+    }
+    else
+    {
+        cout << "Wybrałeś poziom effectu strength: " << level << "\n";
+        return level;
+    }
+}
+
 bool if_armor()
 {
 Pytanie:
@@ -85,6 +102,7 @@ int main()
     string ask_armor;
     int level_prot = 0;
     int sword_type = 0;
+    int strength_value = 0;
 
     cout << "Pytania o zbroje: \n"
          << endl;
@@ -100,10 +118,14 @@ int main()
             cout << "Brak prota\n";
         }
         else
-            cout << "Poziom prota to " << level_prot;
+            cout << "Poziom prota to " << level_prot << endl;
     }
 
     cout << "Pytania o miecz \n";
     sword_type = sword(sword_type);
-    cout << sword_type;
+    cout << sword_type << endl;
+    strength_value = if_potion(strength_value);
+    cout << strength_value << endl;
+
+    return 0;
 }
