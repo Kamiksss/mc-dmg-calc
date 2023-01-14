@@ -30,7 +30,6 @@ int if_ench(string ask, int level){
         return level;
         }
     else if(ask == "N" || ask == "n"){
-        cout<<"Nie masz protection, koniec programu";
         return 0;
         }
     else{
@@ -45,15 +44,19 @@ int main(){
     cout<<"Working in progress..."<<endl;
 
        string ask;
-       int level=32;
+       int level=0;
         
 
     cout<<"Pytania o zbroje: \n"<<endl;
     if(if_armor()== false){
         cout<<"Nie masz zbroi, program na razie na tym się kończy";
+    
     }
-    else
+    else{
         level = if_ench(ask, level);
-        
-            cout<<"Poziom prota to "<< level;
+            if(level == 0){
+                cout<<"Nie masz prota";
+            } else
+        cout<<"Poziom prota to "<< level;
+    }
 }
